@@ -1,24 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
 
+  <style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .main{
+        margin-top: 20px;
+    border: 1px solid black;
+    border-radius: 22px ;
+    padding: 6px;
+    }
+    .display {
+      display: none;
+    }
+  </style>
+  <body>
+    <!-- <nav>
+        <a href=""> LOgo</a>
 
+        <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+            <li>BLog</li>
+        </ul>
 
+        <button>BUy now</button>
+    </nav>
 
-    <div class="">
-        <input type="number" name=""  id="num">
-        <button> Generate</button>
+    <style>
+        nav{
+            display: flex;
+        }
+    </style> -->
+
+    <div class="main">
+      <input type="number" name="" id="num" />
+      <button id="btn">Generate</button>
     </div>
-</body>
+
+    <div class="display" id="msg_div"></div>
+
+    <!-- <a href="" ></a> -->
+  </body>
 </html>
 
 <script>
-    const inp = document.getElementById("inp")
-    const btn = document.getElementById("btn")
+  const inp = document.getElementById("num");
+  const btn = document.getElementById("btn");
+
+  btn.addEventListener("click", () => {
+    // if (inp.value == "") {
+    //   return alert("number can not be empty");
+    // }
+
+    const generated_link = inp.value;
+
+    const returnstring = `https://wa.me/${generated_link}`;
+
+    const message = document.createElement("a");
+    message.href = returnstring;
+    message.innerHTML = ` contact * ${generated_link} * on whatsapp `;
+    message.target = "_blank";
+    const disply = document.getElementById("msg_div");
+    disply.style.display = "block";
+
+    disply.appendChild(message);
+
+    console.log(disply);
+  });
 </script>
