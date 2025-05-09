@@ -7,17 +7,19 @@
   </head>
 
   <style>
-    body{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 90vh;
     }
-    .main{
-        margin-top: 20px;
-    border: 1px solid black;
-    border-radius: 22px ;
-    padding: 6px;
+    .main {
+      margin-top: 20px;
+      border: 1px solid black;
+      border-radius: 22px;
+      padding: 6px;
+      margin-bottom: 20px;
     }
     .display {
       display: none;
@@ -46,6 +48,7 @@
     <div class="main">
       <input type="number" name="" id="num" />
       <button id="btn">Generate</button>
+      <button id="clear ">clear</button>
     </div>
 
     <div class="display" id="msg_div"></div>
@@ -57,25 +60,35 @@
 <script>
   const inp = document.getElementById("num");
   const btn = document.getElementById("btn");
+  const clearbtn = document.getElementById("");
+  const disply = document.getElementById("msg_div");
+
+  //   const num = "09161712483";
+  //     let c = num.trim();
+  //     console.log(c.slice(1, c.length));
 
   btn.addEventListener("click", () => {
     // if (inp.value == "") {
     //   return alert("number can not be empty");
     // }
 
-    const generated_link = inp.value;
+    const generated_link = inp.value.slice(1, inp.value.length);
 
-    const returnstring = `https://wa.me/${generated_link}`;
+    const returnstring = `https://wa.me/+234${generated_link}`;
 
     const message = document.createElement("a");
     message.href = returnstring;
     message.innerHTML = ` contact * ${generated_link} * on whatsapp `;
     message.target = "_blank";
-    const disply = document.getElementById("msg_div");
     disply.style.display = "block";
 
     disply.appendChild(message);
 
-    console.log(disply);
+    // console.log(disply);
+  });
+
+  clearbtn.addEventListener("click", () => {
+    display.innerHTML = "";
+    inp.value = "";
   });
 </script>
