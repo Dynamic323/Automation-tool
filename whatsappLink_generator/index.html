@@ -48,7 +48,7 @@
     <div class="main">
       <input type="number" name="" id="num" />
       <button id="btn">Generate</button>
-      <button id="clear ">clear</button>
+      <button id="clear">clear</button>
     </div>
 
     <div class="display" id="msg_div"></div>
@@ -60,8 +60,8 @@
 <script>
   const inp = document.getElementById("num");
   const btn = document.getElementById("btn");
-  const clearbtn = document.getElementById("");
-  const disply = document.getElementById("msg_div");
+  const clearbtn = document.getElementById("clear");
+  let display = document.getElementById("msg_div");
 
   //   const num = "09161712483";
   //     let c = num.trim();
@@ -80,11 +80,11 @@
     message.href = returnstring;
     message.innerHTML = ` contact * ${generated_link} * on whatsapp `;
     message.target = "_blank";
-    disply.style.display = "block";
+    display.style.display = "block";
 
-    disply.appendChild(message);
+    display.appendChild(message);
 
-    // console.log(disply);
+    // console.log(display);
   });
 
   clearbtn.addEventListener("click", () => {
